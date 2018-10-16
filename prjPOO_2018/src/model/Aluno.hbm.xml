@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/05/2018 22:57:21 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Aluno" table="aluno" catalog="poo_2018_0505" optimistic-lock="version">
+        <id name="idAluno" type="int">
+            <column name="id_aluno" />
+            <generator class="foreign">
+                <param name="property">pessoa</param>
+            </generator>
+        </id>
+        <one-to-one name="pessoa" class="model.Pessoa" constrained="true"></one-to-one>
+        <property name="curso" type="string">
+            <column name="curso" length="40" not-null="true" />
+        </property>
+        <property name="nota1" type="float">
+            <column name="nota1" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="nota2" type="float">
+            <column name="nota2" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="media" type="float">
+            <column name="media" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
